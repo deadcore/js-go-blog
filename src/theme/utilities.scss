@@ -1,0 +1,61 @@
+$xxxs-min: 320px;
+$xxs-min: 375px;
+$xs-min: 414px;
+$sm-min: 768px;
+$md-min: 992px;
+$lg-min: 1200px;
+
+$xxxs-max: ($xxs-min - 1);
+$xxs-max: ($xs-min - 1);
+$xs-max: ($sm-min - 1);
+$sm-max: ($md-min - 1);
+$md-max: ($lg-min - 1);
+
+$phone-xsmall: "only screen and (min-width: #{$xxxs-min})";
+$phone-xsmall-strict: "only screen and (min-width: #{$xxxs-min}) and (max-width: #{$xxxs-max})";
+$phone-small: "only screen and (min-width: #{$xxs-min})";
+$phone-small-strict: "only screen and (min-width: #{$xxs-min}) and (max-width: #{$xxs-max})";
+$phone: "only screen and (min-width: #{$xs-min})";
+$phone-strict: "only screen and (min-width: #{$xxxs-min}) and (max-width: #{$xs-max})";
+$phone-big-strict: "only screen and (min-width: #{$xs-min}) and (max-width: #{$sm-max})";
+$tablet: "only screen and (min-width: #{$sm-min})";
+$tablet-strict: "only screen and (min-width: #{$sm-min}) and (max-width: #{$sm-max})";
+$desktop: "only screen and (min-width: #{$md-min})";
+$desktop-strict: "only screen and (min-width: #{$md-min}) and (max-width: #{$md-max})";
+$large: "only screen and (min-width: #{$lg-min})";
+
+$mediaSizes: ('xxs': $phone-xsmall, 'xs': $phone-small, 'sm': $phone, 'md': $tablet, 'lg': $desktop, 'xl': $large);
+
+$webkit: "screen and (-webkit-min-device-pixel-ratio:0)";
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

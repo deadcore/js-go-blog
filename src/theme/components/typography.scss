@@ -1,0 +1,150 @@
+//############ COLORS ############
+
+.text-dark-gray {
+  color: $color-dark-gray;
+}
+
+.text-light-gray {
+  color: $color-light-gray;
+}
+
+.text-lighter-gray {
+  color: $color-ligher-gray;
+}
+
+.text-blue {
+  color: $color-blue;
+}
+
+.text-dark-blue {
+  color: $color-dark-blue;
+}
+
+.text-dark-red {
+  color: $color-dark-red;
+}
+
+.text-white {
+  color: $color-white;
+}
+
+
+//############ GLOBALS ############
+
+html, body, .amb-layout {
+  font-family: 'Lato', 'Helvetica', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-black;
+}
+
+@media #{$tablet} {
+  html, body, .amb-layout {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+//############ TEXT ALIGNING ############
+
+@each $size, $media in $mediaSizes {
+  @media #{$media} {
+    .text-#{$size}-left {
+      text-align: left !important;
+    }
+    .text-#{$size}-right {
+      text-align: right !important;
+    }
+    .text-#{$size}-center {
+      text-align: center !important;
+    }
+  }
+}
+
+//############ HEADINGS ############
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  margin: 0;
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+$headerSizesMobile: (
+        'h1': (24px, 32px),
+        'h2': (22px, 32px),
+        'h3': (20px, 30px),
+        'h4': (16px, 24px),
+        'h5': (14px, 22px),
+        'h6': (12px, 20px));
+
+@each $tag, $map in $headerSizesMobile {
+  #{$tag} {
+    font-size: nth($map, 1);
+    line-height: nth($map, 2);
+  }
+}
+
+$headerSizesDesktop: (
+        'h1': (30px, 36px),
+        'h2': (24px, 30px),
+        'h3': (20px, 28px),
+        'h4': (16px, 24px),
+        'h5': (14px, 22px),
+        'h6': (12px, 20px));
+
+@media #{$tablet}{
+  @each $tag, $map in $headerSizesDesktop {
+    #{$tag} {
+      font-size: nth($map, 1);
+      line-height: nth($map, 2);
+    }
+  }
+}
+
+//############ PARAGRAPH ############
+.small, small {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.xsmall {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@media #{$tablet} {
+  .small, small {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .xsmall {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+//############ FONTS-SIZES ############
+
+$fonts-size: ('xl': 70px, 'lg': 30px, 'md': 24px, 'sm': 20px, 'xs': 16px);
+
+@each $size, $pixels in $fonts-size {
+  .font-#{$size} {
+    font-size: $pixels;
+    line-height: $pixels;
+  }
+}
+
+@media #{$tablet}{
+  $fonts-size: ('xl': 70px, 'lg': 50px, 'md': 30px, 'sm': 24px, 'xs': 20px);
+
+  @each $size, $pixels in $fonts-size {
+    .font-#{$size} {
+      font-size: $pixels;
+      line-height: $pixels;
+    }
+  }
+}

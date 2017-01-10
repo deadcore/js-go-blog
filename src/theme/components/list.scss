@@ -1,0 +1,58 @@
+ul.lumo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding-left: 1.3em;
+  }
+
+  li:before {
+    position: absolute;
+    font-family: "icomoon";
+    display: inline-block;
+    left: 1em; /* same as padding-left set on li */
+    width: 1.3em; /* same as padding-left set on li */
+  }
+
+  li:not([class^="icon-"], [class*=" icon-"]):before {
+    content: '\e919';
+  }
+
+  li[class^="icon-"], li[class*=" icon-"] {
+    font-family: 'Lato' !important;
+    line-height: inherit;
+  }
+
+  li > div {
+    display: inline;
+  }
+
+  &.list-blue {
+    li:before {
+      color: $color-blue;
+    }
+  }
+}
+
+ul.lumo-list.list-lg {
+
+  font-size: 20px;
+
+  li {
+    @extend .m-y-sm;
+    padding-left: 3.3em;
+
+    &:first-child{
+      margin-top: 0 !important;
+    }
+  }
+
+
+  li:before {
+    margin-top: 0;
+    font-size: 28px;
+  }
+}
+
+

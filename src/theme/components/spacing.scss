@@ -1,0 +1,99 @@
+// ############ SPACING DOCUMENTATION ############
+/*
+Where property is one of:
+  m - for classes that set margin
+  p - for classes that set padding
+
+Where sides is one of:
+  t - for classes that set margin-top or padding-top
+  b - for classes that set margin-bottom or padding-bottom
+  l - for classes that set margin-left or padding-left
+  r - for classes that set margin-right or padding-right
+  x - for classes that set both *-left and *-right
+  y - for classes that set both *-top and *-bottom
+  a - for classes that set a margin or padding on all 4 sides of the element
+# For use with margins only:
+  auto - for classes that set margin auto (m-x-auto: horizontal centering)
+
+Where size is one of:
+  xs - for tiny spacing
+  sm - for small spacing
+  md - for medium spacing
+  lg - for large spacing
+  xl - for extra large spacing
+
+Example:
+  m-t-sm:
+    margin-top: 15px
+  m-a-md:
+    margin: 25px
+  m-x-xs:
+    margin-left: 5px
+    margin-right: 5px
+
+  p-t-sm:
+    padding-top: 15px
+  p-a-md:
+    padding: 25px
+  p-x-xs:
+    padding-left: 5px
+    padding-right: 5px
+
+
+Stolen from Bootstrap 4
+http://v4-alpha.getbootstrap.com/components/utilities/#spacing
+*/
+
+$spacing: ('0': 0, 'xs': 5px, 'sm': 15px, 'md': 30px, 'lg': 45px, 'xl': 60px, 'auto': auto);
+
+@each $size, $pixels in $spacing {
+  .m-t-#{$size} {
+    margin-top: $pixels !important;
+  }
+  .m-b-#{$size} {
+    margin-bottom: $pixels !important;
+  }
+  .m-l-#{$size} {
+    margin-left: $pixels !important;
+  }
+  .m-r-#{$size} {
+    margin-right: $pixels !important;
+  }
+  .m-x-#{$size} {
+    margin-left: $pixels !important;
+    margin-right: $pixels !important;
+  }
+  .m-y-#{$size} {
+    margin-top: $pixels !important;
+    margin-bottom: $pixels !important;
+  }
+  .m-a-#{$size} {
+    margin: $pixels !important;
+  }
+}
+
+@each $size, $pixels in $spacing {
+  .p-t-#{$size} {
+    padding-top: $pixels !important;
+  }
+  .p-b-#{$size} {
+    padding-bottom: $pixels !important;
+  }
+  .p-l-#{$size} {
+    padding-left: $pixels !important;
+  }
+  .p-r-#{$size} {
+    padding-right: $pixels !important;
+  }
+  .p-x-#{$size} {
+    padding-left: $pixels !important;
+    padding-right: $pixels !important;
+  }
+  .p-y-#{$size} {
+    padding-top: $pixels !important;
+    padding-bottom: $pixels !important;
+  }
+  .p-a-#{$size} {
+    padding: $pixels !important;
+  }
+}

@@ -1,0 +1,20 @@
+<nav aria-label="...">
+	<ul class="pager">
+		<li class="hand previous" [class.disabled]="startPage < 1">
+			<a (click)="startPage > 0 && onClick(-1)">
+				<span aria-hidden="true">&larr;
+          </span> {{decrementButton}}
+			</a>
+		</li>
+    <li>
+      <h3>Page: {{startPage}}</h3>
+    </li>
+		<li class="hand next">
+			<a (click)="onClick(1)">
+        {{incrementButton}}
+         <span aria-hidden="true">&rarr;
+         </span>
+         </a>
+		</li>
+	</ul>
+</nav>

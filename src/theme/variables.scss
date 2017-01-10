@@ -1,0 +1,77 @@
+$off-white: #ddd;
+$border-light: #ccc;
+$light: white;
+
+//own colors
+$color-blue: #48BABF;
+$color-dark-blue: #2FA3A9;
+$color-darker-blue: #243055;
+$color-red: #FF6573;
+$color-dark-red: #ff3e48;
+$color-black: #3c3c3c;
+$color-dark-gray: #6e6e6e;
+$color-light-gray2: #ddddde;
+$color-light-gray3: #f4f4f4;
+$color-gray: #bebebe;
+$color-light-gray: #d3d2d2;
+$color-ligher-gray: #f0f0f0;
+$color-offwhite: #f9f9f9;
+$color-white: #ffffff;
+$color-dark-black: #000000;
+$color-light-yellow: #fffbe2;
+$color-dark-yellow: #ffdb00;
+
+//Bootstrap Color Overrides
+$brand-primary: $color-blue;
+$brand-info: $color-dark-blue;
+$brand-danger: $color-red;
+
+//Header
+$header-height: 80px;
+$header-background: #fff;
+$header-foreground: $color-black;
+$header-subtitle: $color-dark-gray;
+
+//Sidebar
+$sidebar-width: 268px;
+$header-link-color: $color-black;
+$sidebar-link-color: #ffffff;
+$sidebar-background: $brand-primary;
+$sidebar-foreground: $color-black;
+$sidebar-border-color: $color-light-gray;
+
+$border-radius: 1px;
+$border-size: 1px;
+
+$btn-border-size: $border-size;
+$btn-active-border-size: 3px;
+
+$btn-default-color: #000;
+$btn-default-bg: #fff;
+$btn-default-border: $color-light-gray;
+
+$btn-primary-color: #fff !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: $brand-primary !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base: $border-radius;
+$btn-border-radius-large: $border-radius;
+$btn-border-radius-small: $border-radius;
+
+//input
+$input-border-size: $border-size;
+$input-color-placeholder: $color-light-gray;
+$input-color: $color-dark-gray;
+$input-border: $color-dark-gray;
+$input-border-radius: $border-radius;
+$input-border-radius-large: $border-radius;
+$input-border-radius-small: $border-radius;
+
+$input-height-base: 50px;
+$input-height-small: 40px;
+
+//form errors
+$error-background: $color-red;
+
+$modal-sm: 460px !important;
