@@ -11,13 +11,14 @@ import {SharedModule} from 'components/common/shared.module';
 import {UserService} from 'services/user.service';
 import {PostService} from './services/post.service';
 import 'rxjs/Rx';
-
-import {PostComponent} from './components/post/post.component';
 import {PostModule} from './components/post/post.module';
+import {LoginModule} from './components/login/login.module';
+import {LocalStorageService} from './services/local-storage.service';
+import {AdminModule} from './components/admin/admin.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     SharedModule,
@@ -26,13 +27,16 @@ import {PostModule} from './components/post/post.module';
     AppRoutingModule,
     LayoutModule,
     PostModule,
-    DashboardModule
+    DashboardModule,
+    LoginModule,
+    AdminModule
   ],
   providers: [
     // AuthHttpProvider,
     UserService,
     SwitchRequestService,
     AuthenticationService,
+    LocalStorageService,
     PostService
   ],
   bootstrap: [AppComponent]

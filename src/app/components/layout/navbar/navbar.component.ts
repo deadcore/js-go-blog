@@ -33,12 +33,12 @@ export class NavbarComponent implements OnInit {
   getMenuItems(): Array<MenuItem> {
     return [
       {
-        name: 'Dashboard',
-        link: 'dashboard'
+        name: 'Login',
+        link: 'login'
       },
       {
-        name: 'Manage Users',
-        link: 'users'
+        name: 'Admin',
+        link: 'admin'
       },
       {
         name: 'Logout',

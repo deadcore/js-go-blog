@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RoutesRecognized, Router} from '@angular/router';
+import {AuthenticationService} from '../../services/authentication.service';
+import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-layout',
@@ -23,7 +25,9 @@ export class LayoutComponent implements OnInit {
 
   showNavbar: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService,
+              private localStorageService: LocalStorageService) {
   }
 
   ngOnInit(): void {
@@ -43,5 +47,9 @@ export class LayoutComponent implements OnInit {
   }
 
   logout() {
+    this.authenticationService
+      .logout(this.localStorageService.getSession())
+      .map(() => this.localStorageService.destroySession())
+      .subscribe(() => this.router.navigate(['home']));
   }
 }
