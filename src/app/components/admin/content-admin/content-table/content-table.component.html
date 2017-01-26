@@ -1,0 +1,16 @@
+<div class="content-editor">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-editor (contentChange)="contentChange($event)"></app-editor>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12" [innerHTML]="content | async | Markdown"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 well">{{content | async | Markdown}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+

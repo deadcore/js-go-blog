@@ -1,0 +1,20 @@
+<div class="row m-t-lg">
+  <form [formGroup]="loginForm" novalidate (ngSubmit)="submit(loginForm.value, loginForm.valid)">
+    <div class="form-group row" [ngClass]="{'has-danger': loginForm.controls.email.valid || (loginForm.controls.email.pristine)}">
+      <label class="col-sm-2 col-form-label" for="email">Email</label>
+      <div class="col-sm-10">
+        <input id="email" type="text" class="form-control" formControlName="email">
+      </div>
+      <div class="form-control-feedback" [hidden]="loginForm.controls.email.valid || (loginForm.controls.email.pristine)">
+        Name is required (minimum 5 characters).
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
