@@ -2,11 +2,18 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - '4.2'
+  - '6.9'
 
-addons:
-apt:
+script:
+  - npm install
+  - ./node_modules/angular-cli/bin/node_modules/ng build --prod --aot
 
-before_script:
-- npm install
-- ./node_modules/angular-cli/bin/node_modules/ng build --prod --aot
+deploy:
+  provider: s3
+  skip_cleanup: true
+  bucket_name: '$ELB_BUCKET'
+  region: '$ELB_REGION'
+  access_key_id:
+    secure: '$ELB_ACCESS_KEY_ID'
+  secret_access_key:
+    secure: '$ELB_SECRET_ACCESS_KEY'

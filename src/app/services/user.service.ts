@@ -1,7 +1,8 @@
-import {Injectable} from "@angular/core";
-import {URLSearchParams, Http, Response} from "@angular/http";
-import {User} from "models/user";
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {URLSearchParams, Http, Response} from '@angular/http';
+import {User} from 'models/user';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class UserService {
@@ -12,11 +13,11 @@ export class UserService {
   find(query: string): Observable<User> {
     let params: URLSearchParams = new URLSearchParams();
     params.set('email', query);
-    return this.http.get(`${AppConfig.apiAuthBaseUrl}/admin/api/users`, { search: params })
+    return this.http.get(`${environment.apiBaseUrl}/admin/api/users`, { search: params })
       .map((res) => res.status === 204 ? null : res.json());
   }
 
   update(user: User): Observable<Response> {
-    return this.http.put(`${AppConfig.apiAuthBaseUrl}/admin/api/users/${user.id}`, user);
+    return this.http.put(`${environment.apiBaseUrl}/admin/api/users/${user.id}`, user);
   }
 }

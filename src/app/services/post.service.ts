@@ -1,8 +1,8 @@
-import {Http, Response, URLSearchParams} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
-
 import {Post} from '../models/post';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class PostService {
@@ -13,17 +13,17 @@ export class PostService {
   }
 
   findAll(pageNumber: number): Observable<Post[]> {
-    return this.http.get(`${AppConfig.apiBaseUrl}/posts`)
+    return this.http.get(`${environment.apiBaseUrl}/posts`)
       .map((res: Response) => res.json());
   }
 
   get(id: string): Observable<Post> {
-    return this.http.get(`${AppConfig.apiBaseUrl}/posts/${id}`)
+    return this.http.get(`${environment.apiBaseUrl}/posts/${id}`)
       .map((res: Response) => res.json());
   }
 
   post(post: Post): Observable<string> {
-    return this.http.post(`${AppConfig.apiBaseUrl}/posts`, post)
+    return this.http.post(`${environment.apiBaseUrl}/posts`, post)
       .map((res: Response) => {
         const headers = res.headers;
         const location = headers.get('Location');
@@ -33,7 +33,7 @@ export class PostService {
   }
 
   patch(id: String, post: Post): Observable<string> {
-    return this.http.patch(`${AppConfig.apiBaseUrl}/posts/${id}`, post)
+    return this.http.patch(`${environment.apiBaseUrl}/posts/${id}`, post)
       .map((res: Response) => {
         return post.Id
       });

@@ -1,4 +1,3 @@
-import {SwitchRequestService} from './services/switch-request.service';
 import {DashboardModule} from './components/home/home.module';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
@@ -35,7 +34,6 @@ import {AuthHttpProvider} from './services/auth-interceptor';
   providers: [
     AuthHttpProvider,
     UserService,
-    SwitchRequestService,
     AuthenticationService,
     LocalStorageService,
     PostService

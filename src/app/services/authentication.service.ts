@@ -1,7 +1,7 @@
 import {Session} from 'models/user-session';
 import {Credentials} from 'models/credentials';
 import {Injectable} from '@angular/core';
-import {Http, URLSearchParams} from '@angular/http';
+import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 
