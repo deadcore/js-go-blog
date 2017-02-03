@@ -10,18 +10,16 @@ import {
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable()
 class AuthHttp extends Http {
 
   constructor(private backend: ConnectionBackend,
               private defaultOptions: RequestOptions,
-              private router: Router) {
+              private router: Router,
+              private localStorageService: LocalStorageService) {
     super(backend, defaultOptions);
-  }
-
-  request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.request(url, this.appendAuthHeaders(options)));
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -37,7 +35,11 @@ class AuthHttp extends Http {
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.delete(url, options));
+    return this.intercept(super.delete(url, this.appendAuthHeaders(options)));
+  }
+
+  patch(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+    return this.intercept(super.patch(url, body, this.appendAuthHeaders(options)));
   }
 
   appendAuthHeaders(options?: RequestOptionsArgs): RequestOptionsArgs {
@@ -47,12 +49,18 @@ class AuthHttp extends Http {
     if (options.headers == null) {
       options.headers = new Headers();
     }
-    let token = '';
+    let token = this.getSessionToken();
     options.headers.append('Content-Type', 'application/json');
     if (token) {
-      options.headers.append('X-Session-Token', token);
+      options.headers.append('x-session-token', token);
     }
     return options;
+  }
+
+  private getSessionToken() {
+    const session = this.localStorageService.getSession();
+
+    return session ? session.Token : null;
   }
 
   intercept(observable: Observable<Response>): Observable<Response> {
@@ -67,13 +75,13 @@ class AuthHttp extends Http {
   }
 }
 
-export function AuthHttpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router) {
-  return new AuthHttp(xhrBackend, requestOptions, router);
+export function AuthHttpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, router: Router, localStorageService: LocalStorageService) {
+  return new AuthHttp(xhrBackend, requestOptions, router, localStorageService);
 }
 
 
 export const AuthHttpProvider = {
   provide: Http,
   useFactory: AuthHttpFactory,
-  deps: [XHRBackend, RequestOptions, Router]
+  deps: [XHRBackend, RequestOptions, Router, LocalStorageService]
 };

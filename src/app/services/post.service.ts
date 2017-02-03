@@ -7,6 +7,7 @@ import {Post} from '../models/post';
 @Injectable()
 export class PostService {
 
+  private locationExtractor: RegExp = /^\/post\/(.*)$/g;
 
   constructor(private http: Http) {
   }
@@ -19,5 +20,26 @@ export class PostService {
   get(id: string): Observable<Post> {
     return this.http.get(`${AppConfig.apiBaseUrl}/posts/${id}`)
       .map((res: Response) => res.json());
+  }
+
+  post(post: Post): Observable<string> {
+    return this.http.post(`${AppConfig.apiBaseUrl}/posts`, post)
+      .map((res: Response) => {
+        const headers = res.headers;
+        const location = headers.get('Location');
+        const broken = this.locationExtractor.exec(location);
+        return broken[1]
+      });
+  }
+
+  patch(id: String, post: Post): Observable<string> {
+    return this.http.patch(`${AppConfig.apiBaseUrl}/posts/${id}`, post)
+      .map((res: Response) => {
+        return post.Id
+      });
+  }
+
+  delete(post: Post) {
+    return this.http.delete(`${AppConfig.apiBaseUrl}/posts/${post.Id}`);
   }
 }

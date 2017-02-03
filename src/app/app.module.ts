@@ -15,6 +15,7 @@ import {PostModule} from './components/post/post.module';
 import {LoginModule} from './components/login/login.module';
 import {LocalStorageService} from './services/local-storage.service';
 import {AdminModule} from './components/admin/admin.module';
+import {AuthHttpProvider} from './services/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {AdminModule} from './components/admin/admin.module';
     AdminModule
   ],
   providers: [
-    // AuthHttpProvider,
+    AuthHttpProvider,
     UserService,
     SwitchRequestService,
     AuthenticationService,

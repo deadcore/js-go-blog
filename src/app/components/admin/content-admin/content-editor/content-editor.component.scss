@@ -1,0 +1,11 @@
+.content-editor {
+  .flexcontainer {
+    display: -webkit-flex;
+    display: flex;
+
+    & > div {
+      flex: 1 1;
+      align-self: stretch;
+    }
+  }
+}

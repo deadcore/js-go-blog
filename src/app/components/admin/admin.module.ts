@@ -1,16 +1,19 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../common/shared.module';
 import {AdminComponent} from './admin.component';
+import {ContentModule} from './content-admin/content-admin.module';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    ContentModule
   ],
   declarations: [
-    AdminComponent
+    AdminComponent,
   ],
   exports: [
-    AdminComponent
+    AdminComponent,
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+}

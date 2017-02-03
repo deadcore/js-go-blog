@@ -5,21 +5,8 @@ import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-layout',
-  template: `
-        <app-navbar (logout)="logout()" *ngIf="showNavbar"></app-navbar>
-        <div class="container">
-          <router-outlet></router-outlet>
-        </div>
-  `,
-  styles: [`
-      :host {
-          display: block;
-          height: 100%;
-          & > div {
-            height: calc(100% - 52px);
-          }
-        }
-  `]
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
 
@@ -50,6 +37,6 @@ export class LayoutComponent implements OnInit {
     this.authenticationService
       .logout(this.localStorageService.getSession())
       .map(() => this.localStorageService.destroySession())
-      .subscribe(() => this.router.navigate(['home']));
+      .subscribe(() => this.router.navigate(['/']));
   }
 }

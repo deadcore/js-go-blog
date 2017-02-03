@@ -1,23 +1,23 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../common/shared.module';
-import {AdminComponent} from './admin.component';
-import {PostAdminComponent} from './content-admin/post-admin.component';
-import {PostAdminTableComponent} from './content-admin/post-admin-table/post-admin-table.component';
+import {SharedModule} from '../../common/shared.module';
+import {ContentAdminComponent} from './content-admin.component';
+import {ContentEditorComponent} from './content-editor/content-editor.component';
+import {ContentTableComponent} from './content-table/content-table.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
-    AdminComponent,
-    PostAdminComponent,
-    PostAdminTableComponent
+    ContentAdminComponent,
+    ContentEditorComponent,
+    ContentTableComponent
   ],
   exports: [
-    AdminComponent,
-    PostAdminComponent,
-    PostAdminTableComponent
+    ContentAdminComponent
   ]
 })
-export class AdminModule {
+export class ContentModule {
 }

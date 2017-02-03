@@ -1,3 +1,11 @@
-<p>
-  admin works!
-</p>
+<div class="admin row">
+  <div class="col-sm-2">
+    <ul class="nav nav-pills nav-stacked">
+      <li [routerLinkActive]="['active']"><a routerLink="content">Content</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

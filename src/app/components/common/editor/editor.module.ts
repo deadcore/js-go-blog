@@ -1,17 +1,20 @@
 import {NgModule} from '@angular/core';
-import {ContentEditorComponent} from './content-editor.component';
-import {SharedModule} from '../../../common/shared.module';
+import {EditorComponent} from './editor.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
-    SharedModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: [
-    ContentEditorComponent
+    EditorComponent
   ],
   exports: [
-    ContentEditorComponent
+    EditorComponent
   ]
 })
-export class ContentEditorModule {
+export class EditorModule {
+
 }

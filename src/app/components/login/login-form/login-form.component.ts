@@ -13,7 +13,6 @@ export class LoginFormComponent implements OnInit {
 
   public loginForm: FormGroup;
 
-
   constructor(private formBuilder: FormBuilder) {
   }
 

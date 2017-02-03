@@ -1,10 +1,16 @@
-<div class="content-admin">
-  <header>
-    <div class="col-sm-6">
-      <h1>Content</h1>
+<form class="content-editor" [formGroup]="form" novalidate>
+  <div class="row">
+    <div class="col-sm-12">
+      <input id="title" type="text" class="form-control" formControlName="Title">
     </div>
-    <div class="col-sm-6">
-      <button class="pull-right btn btn-sm btn-info">Create</button>
+  </div>
+  <div class="flexcontainer">
+    <div>
+      <app-editor formControlName="Content"></app-editor>
     </div>
-  </header>
-</div>
+    <div>
+      <h1>{{title | async}}</h1>
+      <div [innerHTML]="content | async | Markdown"></div>
+    </div>
+  </div>
+</form>

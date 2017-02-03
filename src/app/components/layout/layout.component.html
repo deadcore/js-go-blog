@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="layout">
+  <app-navbar (logout)="logout()" *ngIf="showNavbar"></app-navbar>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</div>

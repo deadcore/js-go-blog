@@ -1,16 +1,17 @@
-<div class="content-editor">
-  <div class="row">
-    <div class="col-sm-6">
-      <app-editor (contentChange)="contentChange($event)"></app-editor>
-    </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-sm-12" [innerHTML]="content | async | Markdown"></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 well">{{content | async | Markdown}}</div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<table class="post-admin-table table table-responsive table-bordered">
+  <thead class="thead-default">
+  <th class="text-center">Id</th>
+  <th class="text-center">Title</th>
+  <th><button type="button" class="btn">Create</button></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let post of posts">
+    <td>{{post.Id}}</td>
+    <td>{{post.Title}}</td>
+    <td>
+      <button type="button" class="btn btn-sm btn-info" routerLink="/admin/content/{{post.Id}}">Edit</button>
+      <button type="button" class="btn btn-sm btn-danger" (click)="deletePostHandler(post)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,20 +1,15 @@
 import {NgModule} from '@angular/core';
-import {EditorComponent} from './editor.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
+import {MarkdownPipe} from './markdown.pipe';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [],
   declarations: [
-    EditorComponent
+    MarkdownPipe
   ],
   exports: [
-    EditorComponent
+    MarkdownPipe
   ]
 })
-export class EditorModule {
+export class MarkdownModule {
 
 }
