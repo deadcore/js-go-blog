@@ -13,6 +13,7 @@ deploy:
   skip_cleanup: true
   bucket: '$ELB_BUCKET'
   region: '$ELB_REGION'
+  local_dir: 'dist'
   access_key_id:
     secure: '$ELB_ACCESS_KEY_ID'
   secret_access_key:
