@@ -11,7 +11,7 @@ script:
 deploy:
   provider: s3
   skip_cleanup: true
-  bucket_name: '$ELB_BUCKET'
+  bucket: '$ELB_BUCKET'
   region: '$ELB_REGION'
   access_key_id:
     secure: '$ELB_ACCESS_KEY_ID'
