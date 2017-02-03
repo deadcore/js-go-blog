@@ -6,7 +6,7 @@ node_js:
 
 script:
   - npm install
-  - ./node_modules/angular-cli/bin/node_modules/ng build --prod --aot
+  - ./node_modules/angular-cli/bin/ng build --prod --aot
 
 deploy:
   provider: s3
