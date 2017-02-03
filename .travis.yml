@@ -1,0 +1,12 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - '4.2'
+
+addons:
+apt:
+
+before_script:
+- npm install
+- ./node_modules/angular-cli/bin/node_modules/ng build --prod --aot

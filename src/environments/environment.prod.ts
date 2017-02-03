@@ -1,4 +1,4 @@
 export const environment = {
-  apiBaseUrl: AppConfig.apiBaseUrl,
+  apiBaseUrl: "http://api.igu.io",
   production: true
 };
