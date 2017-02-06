@@ -1,5 +1,4 @@
-import {Router} from '@angular/router';
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Post} from '../../../models/post';
 
 @Component({
@@ -7,13 +6,8 @@ import {Post} from '../../../models/post';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
-export class PostListComponent implements OnInit {
+export class PostListComponent {
 
   @Input() posts: Post[];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,0 +1,21 @@
+<div class="post-list">
+
+  <div mnFullpage
+       [mnFullpageNavigation]="true"
+       [mnFullpageKeyboardScrolling]="true"
+       [mnFullpageControlArrows]="false">
+
+    <div class="section fp-section fp-table active">
+      <div class="fp-tableCell">
+        This is my home page
+      </div>
+    </div>
+
+    <div class="section fp-section fp-table" *ngFor="let post of posts">
+      <div class="fp-tableCell">
+        <app-post-summary [post]="post"></app-post-summary>
+      </div>
+    </div>
+  </div>
+
+</div>

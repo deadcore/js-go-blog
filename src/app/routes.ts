@@ -9,12 +9,12 @@ import {ContentAdminComponent} from './components/admin/content-admin/content-ad
 import {ContentEditorComponent} from './components/admin/content-admin/content-editor/content-editor.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, data: {showNavbar: true}},
+  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'post', children: [
     {path: ':id', component: PostComponent},
   ]},
-  {path: 'admin', component: AdminComponent, canActivate: [Filters.AuthenticationFilter], data: {showNavbar: false}, children: [
+  {path: 'admin', component: AdminComponent, canActivate: [Filters.AuthenticationFilter], children: [
     {path: 'content', component: ContentAdminComponent},
     {path: 'content/:id', component: ContentEditorComponent}
   ]},
