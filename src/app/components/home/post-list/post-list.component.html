@@ -5,13 +5,17 @@
        [mnFullpageKeyboardScrolling]="true"
        [mnFullpageControlArrows]="false">
 
-    <div class="section fp-section fp-table active">
+    <div class="fp-section fp-table active">
       <div class="fp-tableCell">
-        This is my home page
+        <div class="home-page row">
+          <h1>Welcome to IGU</h1>
+          <h3>I am a software developer who like to program</h3>
+          <p>Here is some filler text about my blog</p>
+        </div>
       </div>
     </div>
 
-    <div class="section fp-section fp-table" *ngFor="let post of posts">
+    <div class="fp-section fp-table" *ngFor="let post of posts">
       <div class="fp-tableCell">
         <app-post-summary [post]="post"></app-post-summary>
       </div>
