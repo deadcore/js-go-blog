@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="post">
   <a routerLink="/post/{{post.Id}}"><h2>{{post.Title}}</h2></a>
   <div class="">
     {{post.Content}}
