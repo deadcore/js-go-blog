@@ -5,9 +5,10 @@ node_js:
   - '6.9'
 
 script:
-  - npm patch minor
   - npm install
-  - ./node_modules/angular-cli/bin/ng build --prod
+  - ./node_modules/angular-cli/bin/ng build --prod --aot
+  - npm patch minor
+  - git push
 
 deploy:
   provider: s3
