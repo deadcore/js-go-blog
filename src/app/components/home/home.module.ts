@@ -12,11 +12,9 @@ import {PostListComponent} from './post-list/post-list.component';
   ],
   declarations: [
     HomeComponent,
-    MnFullpageDirective,
     PostListComponent
   ],
-  exports: [HomeComponent],
-  providers: [MnFullpageService],
+  exports: [HomeComponent]
 })
 export class DashboardModule {
 }
