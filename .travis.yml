@@ -11,7 +11,7 @@ script:
 
 after_success:
   - npm patch minor
-  - git push
+  - git push origin HEAD:master
 
 deploy:
   provider: s3
