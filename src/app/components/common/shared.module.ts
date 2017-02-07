@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {PostSummaryComponent} from './post-summary/post-summary.component';
 import {EditorModule} from './editor/editor.module';
 import {MarkdownModule} from './markdown/markdown.module';
+import {PostDisplayComponent} from './post-display/post-display.component';
 
 @NgModule({
   exports: [
@@ -11,14 +12,17 @@ import {MarkdownModule} from './markdown/markdown.module';
     RouterModule,
     EditorModule,
     MarkdownModule,
-    PostSummaryComponent
+    PostSummaryComponent,
+    PostDisplayComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MarkdownModule
   ],
   declarations: [
-    PostSummaryComponent
+    PostSummaryComponent,
+    PostDisplayComponent
   ],
 })
 export class SharedModule {

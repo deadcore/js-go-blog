@@ -1,7 +1,18 @@
 .content-editor {
+  height: auto;
+
+  .form-control {
+    border: 0;
+    color: #3d4043;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    padding: 0;
+  }
+
   .flexcontainer {
     display: -webkit-flex;
     display: flex;
+    height: 100%;
 
     & > div {
       flex: 1 1;
